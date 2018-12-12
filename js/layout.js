@@ -1,5 +1,7 @@
 var botaoLinhaBloco = document.querySelector("#btnMudaLayout")
 
+var botaoAjuda = document.querySelector("#btnAjuda")
+
 function alteraNome() {
     if (botaoLinhaBloco.textContent === "Blocos") {
         botaoLinhaBloco.textContent = "Linhas"
@@ -22,3 +24,18 @@ botaoLinhaBloco.addEventListener("click", function() {
     mudaClasse()
     alteraNome()
 })
+
+botaoLinhaBloco.classList.remove("no-js")
+/*botaoAjuda.classList.remove("no-js")*/
+
+/* TESTE */
+
+var botaoCor = document.querySelector(".opcoesDoCartao-tipo")
+
+function addNoJs() {
+    if (!botaoCor.classList.contains("no-js")) {
+        botaoCor.classList.add("no-js")
+    }
+}
+
+addNoJs()
