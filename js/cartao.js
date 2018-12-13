@@ -27,3 +27,60 @@ btn.addEventListener("click", function() {
       })
     }
 })()
+
+/* ---- OCULTA OPÇÕES ---- */
+;(function(){
+    const cartoes = document.querySelectorAll(".cartao")
+    for(let i=0; i<cartoes.length; i++) {
+        const cartao = cartoes[i]
+
+        cartao.addEventListener("focusin", function() {
+            cartao.classList.add("cartao--focado")
+        })
+        cartao.addEventListener("focusout", function(){
+            cartao.classList.remove("cartao--focado")
+        })
+    }
+})()
+
+/* ---- COM forEach ---- */
+/*;(function(){
+    const cartoes = document.querySelectorAll(".cartao")
+    cartoes.forEach(function(cartao))
+
+        cartao.addEventListener("focusin", function() {
+            cartao.classList.add("cartao--focado")
+        })
+        cartao.addEventListener("focusout", function(){
+            cartao.classList.remove("cartao--focado")
+        })
+    }
+})()
+*/
+
+/* ---- Alterando Cores ----*/
+/*
+const btnsCores = document.querySelectorAll(".cartoes .opcoes .cor")
+    btnsCores.forEach(function(btnCor){
+        btnCor.addEventListener("Click", function(){
+            const cartao = btnCor.parentNode.parentNode
+            cartao.styles.backgroundColor = btnCor.getAttribute("data-cor")
+        })
+    })
+*/
+
+const cartoes = document.querySelectorAll(".cartao")
+    cartoes.forEach(function(cartao){
+        cartao.addEventListener("change", function(eventoClique){
+            const elemento = eventoClique.target
+            if(elemento.classList.contains("opcoesDoCartao-radioTipo")) {
+                cartao.style.backgroundColor = elemento.getAttribute("value")
+            }
+        })
+
+        cartao.addEventListener("keydown", function mudarCor(evento){
+            if(evento.key == "Enter" || evento.key == " "){
+                evento.target.click()
+            }
+        })
+    })
