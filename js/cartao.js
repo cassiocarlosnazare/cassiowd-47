@@ -69,18 +69,38 @@ const btnsCores = document.querySelectorAll(".cartoes .opcoes .cor")
     })
 */
 
+;(function(){
 const cartoes = document.querySelectorAll(".cartao")
-    cartoes.forEach(function(cartao){
-        cartao.addEventListener("change", function(eventoClique){
+    cartoes.forEach(function(cartao)
+    {
+        cartao.addEventListener("change", function(eventoClique)
+        {
             const elemento = eventoClique.target
-            if(elemento.classList.contains("opcoesDoCartao-radioTipo")) {
+            if(elemento.classList.contains("opcoesDoCartao-radioTipo")) 
+            {
                 cartao.style.backgroundColor = elemento.getAttribute("value")
             }
         })
 
-        cartao.addEventListener("keydown", function mudarCor(evento){
-            if(evento.key == "Enter" || evento.key == " "){
+        cartao.addEventListener("keydown", function mudarCor(evento)
+        {
+            if(evento.key == "Enter" || evento.key == " ")
+            {
                 evento.target.click()
             }
         })
+
+        cartao.addEventListener("click", function remover(evento)
+        {
+            const elemento = evento.target
+            if(elemento.classList.contains("remover"))
+            {
+                cartao.classList.add("some-cartao")
+                cartao.addEventListener("transitionend", function()
+                {
+                    cartao.remove()
+                })
+            }
+        })
     })
+})()
