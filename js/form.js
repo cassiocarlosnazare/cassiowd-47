@@ -1,6 +1,7 @@
 ;(function() 
     {
         const form = document.querySelector(".formNovoCartao")
+        let numeroDoCartao = 0
 
         form.addEventListener("submit", function(evento)
         {
@@ -21,10 +22,18 @@
                         event.target.remove()
                     })
                     form.insertBefore(msgErro, btnSubmit)
-                }
-        })
+                } else {
+                    adicionaCartaoNoMural({conteudo: textArea.value})
+
+                     textArea.value = " "
+                } 
+       
+            })
         form.classList.remove("no-js")
     })()
 
 /*PREVENTE DEFULT: Não deixa a pagina recarregar */
 /*createElement: Espera receber uma string - normalmente tag HTML */
+/*append = inclui um elemento JQuery no final e prepend = inclui no elemento JQuery no inicio
+Exemplo: $(".mural").append(cartao)*/
+

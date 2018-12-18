@@ -28,7 +28,7 @@ botaoLinhaBloco.addEventListener("click", function() {
 botaoLinhaBloco.classList.remove("no-js")
 /*botaoAjuda.classList.remove("no-js")*/
 
-/* TESTE */
+/* TESTE 
 
 var botaoCor = document.querySelector(".opcoesDoCartao-tipo")
 
@@ -38,4 +38,4 @@ function addNoJs() {
     }
 }
 
-addNoJs()
+addNoJs() */
