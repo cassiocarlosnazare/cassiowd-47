@@ -82,11 +82,11 @@ const cartoes = document.querySelectorAll(".cartao")
             }
         })
 
-        cartao.addEventListener("keydown", function mudarCor(evento)
+        cartao.addEventListener("keydown", function mudarCor({key, target})
         {
-            if(evento.key == "Enter" || evento.key == " ")
+            if(key == "Enter" || key == " ")
             {
-                evento.target.click()
+                target.click()
             }
         })
 

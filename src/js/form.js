@@ -23,7 +23,8 @@
                     })
                     form.insertBefore(msgErro, btnSubmit)
                 } else {
-                    adicionaCartaoNoMural({conteudo: textArea.value})
+                    /*window.adicionarCartaoNoMural({conteudo: textArea.value})*/
+                    cartao.criaCartao({conteudo: textArea.value})
 
                      textArea.value = " "
                 } 
