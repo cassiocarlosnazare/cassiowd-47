@@ -9,7 +9,8 @@ function adicionarCartaoNoMural(cartaoObj) {
 numeroDoCartao++
                     const conteudoDoCartao = cartaoObj.conteudo
                     const cartao = $(`
-                    <article id="cartao_${numeroDoCartao}" tabindex="0" class="cartao">
+                    <article id="cartao_${numeroDoCartao}" tabindex="0" class="cartao"
+                    style="background-color:${cartaoObj.cor}">
                         <div class="opcoesDoCartao">
                             <button class="opcoesDoCartao-remove opcoesDoCartao-opcao" tabindex="0">
                                 <svg><use xlink:href="#iconeRemover"></use></svg>
@@ -81,8 +82,23 @@ numeroDoCartao++
 
                     $(".mural").append(cartao)          
     }
-    return {
+
+    $.ajax({
+		url: "https://ceep.herokuapp.com/cartoes/carregar"
+		,method: "GET"
+		,data: {usuario: "cassiocarlosnazare@gmail.com"}
+		,dataType: "jsonp"
+		,success: function(objeto){
+			const cartoes = objeto.cartoes
+			cartoes.forEach(function(cartao){
+				adicionarCartaoNoMural(cartao)
+			})
+		}
+    })
+
+     return {
         criaCartao: adicionarCartaoNoMural
     }
+
 })()     
     

@@ -37,4 +37,3 @@
 /*createElement: Espera receber uma string - normalmente tag HTML */
 /*append = inclui um elemento JQuery no final e prepend = inclui no elemento JQuery no inicio
 Exemplo: $(".mural").append(cartao)*/
-

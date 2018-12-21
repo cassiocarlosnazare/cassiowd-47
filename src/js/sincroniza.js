@@ -8,7 +8,7 @@ const	btnSync	=	$("#btnSync")
 	salvadorDeCartoes.setRequestHeader("Content-Type",	"application/json")
 	const	cartoes	=	document.querySelectorAll(".cartao")
 	const	infosDoMural	=	{
-	    usuario:	"seuemail@email.com.br"
+	    usuario:	"cassiocarlosnazare@gmail.com"
 		,cartoes:	Array.from($(".cartao")).map(function(cartao){
 		    return	{
 			    conteudo:	cartao.querySelector(".cartao-conteudo").textContent
@@ -19,7 +19,7 @@ const	btnSync	=	$("#btnSync")
 		salvadorDeCartoes.send(JSON.stringify(infosDoMural))
 	    salvadorDeCartoes.addEventListener("load",	function(){
 			const	response	=	JSON.parse(salvadorDeCartoes.response)
-			console.log(`${response.quantidade}	cartões	salvos	em	${response.usuario}`)
+			console.log(`${response.quantidade} cartões salvos em ${response.usuario}`)
 				btnSync.removeClass("botaoSync--esperando")
 				btnSync.addClass("botaoSync--sincronizado")
 				})
